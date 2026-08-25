@@ -20,4 +20,4 @@ jobs:
         env:
           scheme: ${{ 'default' }}
         run: |
-          xcodebuild -workspace iSH.xcodeproj/project.xcworkspace
+          xcodebuild -workspace .github/workspace \ -scheme iSH.xcscheme
