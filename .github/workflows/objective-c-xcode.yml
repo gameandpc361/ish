@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout Submodules Deeply
+        run: |
+         git submodule update --init --recursive --force
       - name: installDependencies
         run: |
           brew install meson ninja lld libarchive
