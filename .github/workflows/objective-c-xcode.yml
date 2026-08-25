@@ -13,6 +13,7 @@ jobs:
       - name: Build
         run: |
           xcodebuild -list
+          echo "A"
           xcodebuild -workspace .github/workspace \ -Scheme iSH \ -configuration Release \ archive \ -archivePath .\HOGE_FEATURE_DISABLE=1
           echo "B"
           xcodebuild -exportArchive \ -archivePath . \ -exportPath app/ \ -exportOptionsPlist app/Info.plist
