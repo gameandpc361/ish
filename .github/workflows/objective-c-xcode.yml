@@ -15,7 +15,7 @@ jobs:
           brew install meson ninja
       - name: Pre-build Meson Core
         run: |
-          find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.yourcompany/g' {} +
+          find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.egoz/g' {} +
           meson setup builddir --backend=ninja
           ninja -C builddir
       - name: Build
