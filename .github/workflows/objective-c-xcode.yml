@@ -14,6 +14,8 @@ jobs:
         run: |
           brew install meson ninja
       - name: Build
+        env:
+          DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
         run: |
           xcodebuild -list
           echo "A"
