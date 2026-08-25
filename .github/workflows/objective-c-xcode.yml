@@ -12,13 +12,16 @@ jobs:
         uses: actions/checkout@v4
       - name: installDependencies
         run: |
-          brew install meson ninja lld
+          brew install meson ninja lld libarchive
       - name: Pre-build Meson Core
         run: |
          echo "/opt/homebrew/opt/lld/bin" >> $GITHUB_PATH
          echo "/opt/homebrew/opt/llvm/bin" >> $GITHUB_PATH
-         export LDFLAGS="-L/opt/homebrew/opt/lld/lib"
-         export CPPFLAGS="-I/opt/homebrew/opt/lld/include"
+         export C_INCLUDE_PATH="/opt/homebrew/opt/libarchive/include:$C_INCLUDE_PATH"
+         export CPLUS_INCLUDE_PATH="/opt/homebrew/opt/libarchive/include:$CPLUS_INCLUDE_PATH"
+         export LIBRARY_PATH="/opt/homebrew/opt/libarchive/lib:$LIBRARY_PATH"
+         export LDFLAGS="-L/opt/homebrew/opt/lld/lib -L/opt/homebrew/opt/libarchive/lib"
+         export CPPFLAGS="-I/opt/homebrew/opt/lld/include -I/opt/homebrew/opt/libarchive/include"
          meson setup builddir --backend=ninja --buildtype=release
          ninja -C builddir
       - name: Build
