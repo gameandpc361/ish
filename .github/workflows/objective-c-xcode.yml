@@ -17,8 +17,6 @@ jobs:
           echo $default | cat >default
           echo Using default scheme: $default
       - name: Build
-        env:
-          scheme: ${{ 'default' }}
         run: |
           xcodebuild -list
           xcodebuild -workspace .github/workspace \ -Scheme iSH \ -configuration Release \ archive \ -archivePath .\HOGE_FEATURE_DISABLE=1
