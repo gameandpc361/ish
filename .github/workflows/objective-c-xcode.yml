@@ -17,7 +17,7 @@ jobs:
         run: |
          echo "/opt/homebrew/opt/lld/bin" >> $GITHUB_PATH
          echo "/opt/homebrew/opt/llvm/bin" >> $GITHUB_PATH
-         find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.egoz/
+         find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.egoz/'
          export LDFLAGS="-L/opt/homebrew/opt/lld/lib"
          export CPPFLAGS="-I/opt/homebrew/opt/lld/include"
          meson setup builddir --backend=ninja --buildtype=release
