@@ -11,9 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        run: |
+        run:
           xcodebuild -list
           echo "A"
-          xcodebuild -workspace iSH.xcodeproj/project.xcworkspace -scheme iSH -destination 'generic/platform=iOS' -configuration Release \DEVELOPMENT_TEAM="6HA726GFFJ" \ CODE_SIGN_STYLE="Manual" \ CODE_SIGN_IDENTITY="iPhone Distribution" \ PROVISIONING_PROFILE_SPECIFIER="app_1" \ PRODUCT_BUNDLE_IDENTIFIER="com.egoz.$(PRODUCT_BUNDLE_IDENTIFIER:rfc1034identifier)" -archive 
+          xcodebuild -workspace iSH.xcodeproj/project.xcworkspace -scheme iSH -destination 'generic/platform=iOS' -configuration Release \DEVELOPMENT_TEAM="6HA726GFFJ" \ CODE_SIGN_STYLE="Manual" \ CODE_SIGN_IDENTITY="iPhone Distribution" \ PROVISIONING_PROFILE_SPECIFIER="app_1" \ PRODUCT_BUNDLE_IDENTIFIER="com.egoz.$(PRODUCT_BUNDLE_IDENTIFIER:rfc1034identifier)" -archivePath  
           echo "B"
           xcodebuild -exportArchive \ -archivePath . \ -exportPath app/ \ -exportOptionsPlist app/Info.plist
