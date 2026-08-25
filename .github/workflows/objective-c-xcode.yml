@@ -27,6 +27,9 @@ jobs:
       - name: Build
         env:
           DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+          C_INCLUDE_PATH: "/opt/homebrew/opt/libarchive/include"
+          CPLUS_INCLUDE_PATH: "/opt/homebrew/opt/libarchive/include"
+          LIBRARY_PATH: "/opt/homebrew/opt/libarchive/lib"
         run: |
           xcodebuild -list
           echo "A"
