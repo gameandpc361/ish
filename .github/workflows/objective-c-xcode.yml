@@ -36,7 +36,7 @@ jobs:
         run: |
           xcodebuild -list
           echo "A"
-          xcodebuild -workspace iSH.xcodeproj/project.xcworkspace -scheme iSH -destination 'generic/platform=iOS' -configuration Release \ CODE_SIGNING_ALLOWED=No \ CODE_SIGNING_REQUIRED=No \ CODE_SIGN_IDENTITY="" \ CODE_SIGNING_STYLE=Manual \ COMPILER_INDEX_STORE_ENABLE=NO \ GCC_WARN_INHIBIT_ALL_WARNINGS=YES \ RUN_CLANG_STATIC_ANALYZER=NO \ CLANG_WARN_DOCUMENTATION_COMMENTS=NO \-archivePath ".github/build/iSH.xcarchive" -IDEBuildOperationMaxNumberOfConcurrentCompileTasks=1 clean archive  
+          xcodebuild -workspace iSH.xcodeproj/project.xcworkspace -scheme iSH -destination 'generic/platform=iOS' -configuration Release \ CODE_SIGNING_ALLOWED=No \ CODE_SIGNING_REQUIRED=No \ CODE_SIGN_IDENTITY="" \ CODE_SIGNING_STYLE=Manual \ COMPILER_INDEX_STORE_ENABLE=NO \ GCC_WARN_INHIBIT_ALL_WARNINGS=YES \ RUN_CLANG_STATIC_ANALYZER=NO \ CLANG_WARN_DOCUMENTATION_COMMENTS=NO \-archivePath "./build/iSH.xcarchive" -IDEBuildOperationMaxNumberOfConcurrentCompileTasks=1 clean archive  
           echo "B"
       - name: Package Unsigned IPA Manually
         run: |
