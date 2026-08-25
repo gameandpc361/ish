@@ -12,8 +12,12 @@ jobs:
         uses: actions/checkout@v4
       - name: installDependencies
         run: |
-          brew install meson ninja
+          brew install meson ninja lld
       - name: Pre-build Meson Core
+        env:
+          LDFLAGS: "-L/opt/homebrew/opt/lld/lib"
+          CPPFLAGS: "-I/opt/homebrew/opt/lld/include"
+          PATH: "/opt/homebrew/opt/lld/bin:/opt/homebrew/opt/llvm/bin:$PATH"
         run: |
           find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.egoz/g' {} +
           meson setup builddir --backend=ninja
