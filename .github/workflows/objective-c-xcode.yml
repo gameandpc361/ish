@@ -21,5 +21,5 @@ jobs:
           scheme: ${{ 'default' }}
         run: |
           xcodebuild -list
-          xcodebuild -workspace .github/workspace \ -scheme iSH \ -configuration Release \ archive \ -archivePath .\HOGE_FEATURE_DISABLE=1
+          xcodebuild -workspace .github/workspace \ -Scheme iSH \ -configuration Release \ archive \ -archivePath .\HOGE_FEATURE_DISABLE=1
           xcodebuild -exportArchive \ -archivePath . \ -exportPath app/ \ -exportOptionsPlist app/Info.plist
