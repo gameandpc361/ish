@@ -13,6 +13,11 @@ jobs:
       - name: installDependencies
         run: |
           brew install meson ninja
+      - name: Pre-build Meson Core
+        run: |
+          find . -name "project.pbxproj" -exec sed -i '' 's/app.ish/com.yourcompany/g' {} +
+          meson setup builddir --backend=ninja
+          ninja -C builddir
       - name: Build
         env:
           DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
